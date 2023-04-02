@@ -1,24 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import styles from './styles.module.css'
+import { Input, List, Button, Space } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
+import { observer } from "mobx-react"
+import {TodoState} from "./store/toDoState";
+import Todo from './components/toDo';
+
+
+
+
+
+const toDoState = new TodoState();
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <Todo toDoState={toDoState} />
     </div>
   );
 }
